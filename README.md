@@ -1,5 +1,7 @@
 # todolist
 
+Aplicação de Lista de Tarefas (TODOlist) - Esta aplicação serve como ferramenta de estudo do universo Vue.js (Vue.js, VueCli, Vuetify, Vuex, VueRouter), e para uso pessoal, de forma que facilmente se terá em mãos um app para listar suas tarefas diárias. 
+
 ## Project setup
 ```
 npm install
