@@ -1,4 +1,5 @@
 mostrar data e hora atual - OK
+no_tasks - OK
 
 add
 done
@@ -7,8 +8,7 @@ delete
 
 (mostrar mensagem quando a tarefa for add, delete, update)
 (mostrar dialog quando a tarefa for delete, update)
-
-no_tasks - 
+ 
 update
 add due data
 sort

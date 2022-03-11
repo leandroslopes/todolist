@@ -1,5 +1,7 @@
 <template>
+  
   <div class="todolist">
+    
     <v-text-field
       v-model="newTaskTitle"
       @click:append="add"
@@ -12,32 +14,64 @@
     >
     </v-text-field>
 
-    <v-list class="pt-0" flat>
-      <div v-for="task in tasks" :key="task.id">
-        <v-list-item @click="done(task.id)" :class="{ 'blue lighten-5': task.done }">
-          <template v-slot:default>
-            <v-list-item-action>
-              <v-checkbox :input-value="task.done"></v-checkbox>
-            </v-list-item-action>
+    <div v-if="tasks.length">
 
-            <v-list-item-content>
-              <v-list-item-title :class="{ 'text-decoration-line-through': task.done }">
-                {{ task.title }}
-              </v-list-item-title>
-            </v-list-item-content>
+      <v-list class="pt-0" flat>
+      
+        <div v-for="task in tasks" :key="task.id">
+          
+          <v-list-item @click="done(task.id)" :class="{ 'blue lighten-5': task.done }">
+            <template v-slot:default>
+              <v-list-item-action>
+                <v-checkbox :input-value="task.done"></v-checkbox>
+              </v-list-item-action>
 
-            <v-list-item-action>
-              <v-btn @click.stop="del(task.id)" icon>
-                <v-icon color="primary lighten-1">mdi-delete</v-icon>
-              </v-btn>
-            </v-list-item-action>
-          </template>
-        </v-list-item>
+              <v-list-item-content>
+                <v-list-item-title :class="{ 'text-decoration-line-through': task.done }">
+                  {{ task.title }}
+                </v-list-item-title>
+              </v-list-item-content>
 
-        <v-divider></v-divider>
+              <v-list-item-action>
+                <v-btn @click.stop="del(task.id)" icon>
+                  <v-icon color="primary lighten-1">mdi-delete</v-icon>
+                </v-btn>
+              </v-list-item-action>
+            </template>
+          </v-list-item>
+
+          <v-divider></v-divider>
+        
+        </div>
+    
+      </v-list>
+
+    </div>
+
+    <div class="mt-16 animate__animated animate__bounceInUp" v-else>
+
+      <center>
+
+        <v-icon
+          size="100"
+          color="primary"
+        >
+          mdi-check
+        </v-icon>
+
+      <div
+        class="text-h5 primary--text"
+      >
+        Não há tarefa
       </div>
-    </v-list>
+
+      </center>
+      
+
+    </div>
+
   </div>
+
 </template>
 
 <script>
@@ -47,7 +81,7 @@ export default {
     return {
       newTaskTitle: '',
       tasks: [
-        {
+        /* {
           id: 1,
           title: "Comprar",
           done: false,
@@ -61,7 +95,7 @@ export default {
           id: 3,
           title: "Emprestar",
           done: false,
-        },
+        }, */
       ],
     };
   },
