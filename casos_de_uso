@@ -1,0 +1,17 @@
+mostrar data e hora atual - OK
+
+add
+done
+delete
+
+
+(mostrar mensagem quando a tarefa for add, delete, update)
+(mostrar dialog quando a tarefa for delete, update)
+
+no_tasks - 
+update
+add due data
+sort
+search
+
+usar db.json

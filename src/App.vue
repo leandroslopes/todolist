@@ -24,6 +24,7 @@
         <v-list-item
           v-for="item in items"
           :key="item.title"
+          :to="item.to"
           link
         >
           <v-list-item-icon>
@@ -37,10 +38,36 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+      prominent
+      src="sunrise.jpg"
+    >
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
+        ></v-img>
+      </template>
+
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Todolist</v-toolbar-title>
+      <v-app-bar-title >
+        
+        Todolist
+        
+        <Clock class="subtitle-2 font-weight-thin pr-100"/> 
+
+      </v-app-bar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
     </v-app-bar>
 
     <v-main>
@@ -48,15 +75,22 @@
       <router-view></router-view>
 
     </v-main>
+
   </v-app>
+
 </template>
 
 <script>
+import Clock from "./components/Clock.vue"
+
   export default {
+    components: {
+      Clock
+    },
     data: () => ({ 
       drawer: null,
       items: [
-          { title: 'Todolist', icon: 'mdi-view-dashboard', to: '/' },
+          { title: 'Todolist', icon: 'mdi-format-list-checks', to: '/' },
           { title: 'Sobre', icon: 'mdi-help-box', to: '/about' },
       ],
     }),
