@@ -13,12 +13,11 @@
       clearable
     >
     </v-text-field>
-
-    <div v-if="tasks.length">
-
+    
+    <div>
       <v-list class="pt-0" flat>
       
-        <div v-for="task in tasks" :key="task.id">
+        <div v-for="task in tasks.tasks" :key="task.id">
           
           <v-list-item @click="done(task.id)" :class="{ 'blue lighten-5': task.done }">
             <template v-slot:default>
@@ -48,7 +47,7 @@
 
     </div>
 
-    <div class="mt-16 animate__animated animate__bounceInUp" v-else>
+    <!-- <div class="mt-16 animate__animated animate__bounceInUp" v-else>
 
       <center>
 
@@ -68,38 +67,32 @@
       </center>
       
 
-    </div>
+    </div> -->
 
   </div>
 
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: "Todolist",
   data() {
     return {
       newTaskTitle: '',
-      tasks: [
-        /* {
-          id: 1,
-          title: "Comprar",
-          done: false,
-        },
-        {
-          id: 2,
-          title: "Vender",
-          done: false,
-        },
-        {
-          id: 3,
-          title: "Emprestar",
-          done: false,
-        }, */
-      ],
+      //tasks: []
     };
   },
-  methods: {
+  computed: {
+    ...mapState([
+      'tasks'
+    ])
+  },
+  mounted() {
+    this.$store.dispatch('tasks/load')
+  },
+  methods: { 
     add() {
       let newTask = {
         id: Date.now(),
@@ -115,7 +108,7 @@ export default {
     },
     del(id) {
       this.tasks = this.tasks.filter((task) => task.id !== id);
-    },
+    }
   },
 };
 </script>
