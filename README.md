@@ -1,7 +1,10 @@
-# todolist
+# TODOlist
 
-Aplicação de Lista de Tarefas (TODOlist) - Esta aplicação serve como ferramenta de estudo do universo Vue.js (Vue.js, VueCli, Vuetify, Vuex, VueRouter), e para uso pessoal, de forma que facilmente se terá em mãos um app para listar suas tarefas diárias. 
+<p align="justify">Task List App (TODOlist) - This app serves as a tool for studying the Vue.js universe (Vue.js, VueCli, Vuetify, Vuex, VueRouter), and for personal use, so that you easily have an app at hand to list your daily tasks.<p>
 
+## Demo
+
+* <a href="https://mylistododemo.netlify.app/#/" target="_blank" alt="TODOlist">TODOlist</a>
 
 ## Technologies
 
