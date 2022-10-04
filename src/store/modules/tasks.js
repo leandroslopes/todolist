@@ -13,7 +13,7 @@ const tasks = {
     actions: {
         load({commit}) {
             axios
-                .get("http://localhost:3000/tasks")
+                .get(`${base_url}/tasks`)
                 .then(response => {
                     commit('SET_TASKS', response.data)
                 })

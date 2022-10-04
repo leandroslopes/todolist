@@ -1,0 +1,9 @@
+[build]
+    command = 'npm run build && npm run export'
+    publish = 'out'
+    functions = 'dist-functions'
+
+[[redirects]]
+    from = '/*'
+    to = '/404'
+    status = 404
